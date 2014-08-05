@@ -180,7 +180,6 @@ Visualizations in IDEs, such a red wavy underlines and margin indicators, take t
 \item A foundational set of composable visual annotations that aid developers in better comprehending error messages.
 \item An \textit{explanation task} evaluation, using a set of paper mockups, which demonstrates that our explanatory visualizations yield more correct self-explanations than the baseline visualizations used in IDEs today. These annotations are used intuitively by developers in their own self-explanations of error messages, even when explanatory visualizations have not been provided to them.
 \item A \textit{recall task} evaluation, in which developers write programs that intentionally generate compile errors, which demonstrates that better self-explanations enable developers to construct better mental models of error notifications.
- 
 \end{itemize}
 
 \section{Motivating Example}
@@ -198,6 +197,53 @@ This false hypothesis remains uncorrected by the IDE. In his IDE, the red wavy u
 In contrast, consider our approach, shown in Figure~\ref{fig:melon:explanatory}. Here, Yoonki may not experience the same knowledge breakdown, because the IDE provides a visual explanation of the problem within his source code. Though Yoonki might once again incorrectly assume that \texttt{final} variables must be initialized at declaration, the visualization implies that the problem is actually related to control flow. Specifically, the explanatory visualization is showing Yoonki that there is a code path in which \texttt{i} is assigned a value (when \texttt{b = true}), and another code path where it is not (when \texttt{b = false}). This time, Yoonki correctly fixes the defect by adding an \texttt{else} statement to the condition, initializing it with an appropriate value in the case when \texttt{b = false}.
 
 This hypothetical scenario illustrates why the dominant visualization paradigm is not sufficient in supporting the process of self-explanation. As we argue in this paper, this scenario is illustrative of the more general problem with the output of program analysis tools: these tools present only the end-result of the reasoning process and therefore do not support the developer in self-explaining.
+
+\section{Pilot Study}
+\label{sec:pilotstudy}
+
+\begin{table}[!t]
+\caption{Frequency of Visual Annotations in Pilot\label{tab:pilot}}
+\centering
+\begin{tabularx}{\columnwidth}{lrX}
+\toprule
+Annotation & Frequency & Description\\
+\midrule
+Point & 49 & Indicates that a particular token or set of tokens has been marked. Examples include underlining or circles the token(s).\\
+[0.2cm]
+Text & 45 & Indicates natural language text. For example, ``assign a value to the variable'' or ``dead code''.\\
+[0.2cm]
+Association & 33 & Indicates an association between two or more program elements, which is accomplished by drawing a connecting line between the elements, with or without arrow heads.\\
+[0.2cm]
+Symbol & 20 & Symbols include visual annotation such as \texttt{?} or \texttt{x}, or numbered circles, to name a few.\\
+[0.2cm]
+Code & 14 & Explanatory code that is written in order to explain the error message, for example, \texttt{if (b == false)} or \texttt{m(1.0, 2)}. This does not have to be correct Java code, but should be interpretable as pseudocode.\\
+[0.2cm]
+Strikethrough & 5 & The strikethrough is separated from the point annotation because this annotation is provided by IDEs today, and has pre-established semantics.
+\\
+[0.2cm]
+Multicolor & - & The use of more than a single color to explain a concept. For example, green may be used to indicate lines that are okay, and red to indicate lines that are problematic. This option was not available to students in the pilot study.\\
+[0.2cm]
+\bottomrule
+\end{tabularx}
+\end{table}
+
+We conducted a pilot study\footnote{All experimental study materials are available at \url{http://go.barik.net/errviz}.} from undergraduate lab sessions in Software Engineering to address a pre-requisite research question:
+\begin{description}
+\item[\textbf{RQ0}] What annotations do developers use when they explain error messages to each other?
+\end{description}
+
+We hypothesized that if participants preferred certain types of annotations when explaining error messages to each other, they could also benefit when the same annotations were used to explain error messages to them through their IDE.
+
+Thus, before generating our annotations, we conducted an informal lab activity with third-year Software Engineering students. Each student was given a sheet of paper with a source code listing and the corresponding compiler error message. The source code listings were unadorned and lacked any visual annotations.
+
+Students were paired in order to perform an explainer-listener active learning exercise. This is an exercise in which one student, the explainer, is asked to verbally explain the error message to the other student, while visually annotating the source code listing during their explanation. Access to external materials was not allowed. After two minutes of explanation, roles were swapped and the second explainer annotated the second error message.
+
+We randomly assigned one of four source code listings to each student, pulled verbatim from the OpenJDK 7 unit tests for compiler diagnostics framework. These examples, among others used in subsequent studies, are found in Table~\ref{tab:tasks}, and no students within a pair received the same source code listings. In total, we collected 73 samples:  17 from T1 (23\%), 12 from T2 (16\%), 20 from T3 (27\%), and 24 from T6 (33\%). Students did not receive tasks T4 or T5, because they had not been created at the time of the pilot study.
+
+From these annotations, we performed two passes over the student responses. In the first pass, we created a taxonomy of visual annotations based on our observations. In the second pass, we classified the student responses using this taxonomy. The aggregated results are shown in Table~\ref{tab:pilot}.
+
+Our own explanatory visualizations are informed by this pilot study, through which we implement annotations such as points, associations, symbols and explanatory code. Since students used these types of annotations without any \textit{a priori} prompting, we postulate that they find these types of annotations intuitive to use during explanation.
+
 
 \section{Explanatory Visualizations of Error Messages}
 \label{sec:motivation}
@@ -308,56 +354,6 @@ Finally, the \begin{tikzpicture}
 \end{tikzpicture} is used to indicate that the program element should be associated with another element, but that the connecting element is not found. This can occur, for example, when a \texttt{catch} statement is unreachable either because the exception can never be thrown, or because it is always caught by a prior \texttt{catch} clause:
 
 \includegraphics{trumpet_explain_crop.pdf}
-
-% In short, the set of visualization annotation described here comprehensively cover the annotations used in our experiment.
-
-% tool tip problem
-
-\section{Pilot Study}
-\label{sec:pilotstudy}
-
-We conducted a pilot study\footnote{All experimental study materials are available at \url{http://go.barik.net/errviz}.} from undergraduate lab sessions in Software Engineering to address a pre-requisite research question:
-\begin{description}
-\item[\textbf{RQ0}] What annotations do developers use when they explain error messages to each other?
-\end{description}
-
-We hypothesized that if participants preferred certain types of annotations when explaining error messages to each other, they could also benefit when the same annotations were used to explain error messages to them through their IDE.
-
-Thus, before generating our annotations, we conducted an informal lab activity with third-year Software Engineering students. Each student was given a sheet of paper with a source code listing and the corresponding compiler error message. The source code listings were unadorned and lacked any visual annotations.
-
-Students were paired in order to perform an explainer-listener active learning exercise. This is an exercise in which one student, the explainer, is asked to verbally explain the error message to the other student, while visually annotating the source code listing during their explanation. Access to external materials was not allowed. After two minutes of explanation, roles were swapped and the second explainer annotated the second error message.
-
-We randomly assigned one of four source code listings to each student, pulled verbatim from the OpenJDK 7 unit tests for compiler diagnostics framework. These examples, among others used in subsequent studies, are found in Table~\ref{tab:tasks}, and no students within a pair received the same source code listings. In total, we collected 73 samples:  17 from T1 (23\%), 12 from T2 (16\%), 20 from T3 (27\%), and 24 from T6 (33\%). Students did not receive tasks T4 or T5, because they had not been created at the time of the pilot study.
-
-\begin{table}[!t]
-\caption{Frequency of Visual Annotations in Pilot\label{tab:pilot}}
-\centering
-\begin{tabularx}{\columnwidth}{lrX}
-\toprule
-Annotation & Frequency & Description\\
-\midrule
-Point & 49 & Indicates that a particular token or set of tokens has been marked. Examples include underlining or circles the token(s).\\
-[0.2cm]
-Text & 45 & Indicates natural language text. For example, ``assign a value to the variable'' or ``dead code''.\\
-[0.2cm]
-Association & 33 & Indicates an association between two or more program elements, which is accomplished by drawing a connecting line between the elements, with or without arrow heads.\\
-[0.2cm]
-Symbol & 20 & Symbols include visual annotation such as \texttt{?} or \texttt{x}, or numbered circles, to name a few.\\
-[0.2cm]
-Code & 14 & Explanatory code that is written in order to explain the error message, for example, \texttt{if (b == false)} or \texttt{m(1.0, 2)}. This does not have to be correct Java code, but should be interpretable as pseudocode.\\
-[0.2cm]
-Strikethrough & 5 & The strikethrough is separated from the point annotation because this annotation is provided by IDEs today, and has pre-established semantics.
-\\
-[0.2cm]
-Multicolor & - & The use of more than a single color to explain a concept. For example, green may be used to indicate lines that are okay, and red to indicate lines that are problematic. This option was not available to students in the pilot study.\\
-[0.2cm]
-\bottomrule
-\end{tabularx}
-\end{table}
-
-From these annotations, we performed two passes over the student responses. In the first pass, we created a taxonomy of visual annotations based on our observations. In the second pass, we classified the student responses using this taxonomy. The aggregated results are shown in Table~\ref{tab:pilot}.
-
-Our own explanatory visualizations are informed by this pilot study, through which we implement annotations such as points, associations, symbols and explanatory code. Since students used these types of annotations without any \textit{a priori} prompting, we postulate that they find these types of annotations intuitive to use during explanation.
 
 \section{Methodology}
 
