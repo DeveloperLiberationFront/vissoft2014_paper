@@ -179,7 +179,7 @@ Visualizations in IDEs, such a red wavy underlines and margin indicators, take t
 \begin{itemize}
 \item A foundational set of composable visual annotations that aid developers in better comprehending error messages.
 \item An \textit{explanation task} evaluation, using a set of paper mockups, which demonstrates that our explanatory visualizations yield more correct self-explanations than the baseline visualizations used in IDEs today. These annotations are used intuitively by developers in their own self-explanations of error messages, even when explanatory visualizations have not been provided to them.
-\item A \textit{recall task} evaluation, in which developers write programs on a computer to intentionally generate compile errors, which demonstrates that better self-explanations enable developers to construct better mental models of error notifications.
+\item A \textit{recall task} evaluation, in which developers write programs in a minimalistic programming environment to intentionally generate compile errors, which demonstrates that better self-explanations enable developers to construct better mental models of error notifications.
 \end{itemize}
 
 \section{Motivating Example}
@@ -494,7 +494,7 @@ The first and second authors conducted the experiments. To increase consistency 
 We randomly assigned participants to one of two groups --- control or treatment, such that each group had an equal number of participants. This resulted in 14 participants per group. The only difference between the treatment and control groups was the type of visualizations that they used during the experiment.
 
 \subsubsection{Recording}
-Participants filled out an informed consent form and indicated whether or not they wanted their audio and screens to be recorded. For participants who agreed to be recorded ($n=26$), we used desktop recorder software to record both the audio of the explanations as well as screen interactions during the experiment.
+Participants filled out an informed consent form and indicated whether or not they wanted their audio (used in Phase 1 and 2) and screens (used in Phase 2) to be recorded. For participants who agreed to be recorded ($n=26$), we used desktop recorder software to record both the audio of the explanations as well as screen interactions during the experiment.
 
 \subsubsection{Phase 1: Self-Explanation Phase}
 
@@ -1004,7 +1004,7 @@ Furthermore, the act of performing a think-aloud can enhance self-explanation, a
 
 \textit{Self-explanation.} Lim and colleagues demonstrate that explanations describing why a system behaves a certain way results in better understanding and stronger feelings of trust~\cite{Lim2009}. We were also inspired by the work of Ainsworth and Th~Loizou, who showed that the use of diagrams promote the self-explanation effect significantly more than text~\cite{Ainsworth2003}.
 
-\textit{Improving error notification comprehension.} Jeffrey created a tool called \textit{Merr} that overrides the error handler of the LR parser generator of a compiler to automatically provide more useful syntax error messages~\cite{Jeffery2003}, and Kantorowitz and Laor likewise propose modifications to the parser generator~\cite{Kantorowitz1986}. While these tools apply to text error messages, it illustrates that tools can improve error messages when they can interact with compiler internals. However, Nienaltowski and colleagues found that even detailed messages do not necessarily simplify understanding of error messages~\cite{Nienaltowski2008}. 
+\textit{Improving error notification comprehension.} Jeffrey created a tool called \textit{Merr} that overrides the error handler of the LR parser generator of a compiler to automatically provide more useful syntax error messages~\cite{Jeffery2003}, and Kantorowitz and Laor likewise propose modifications to the parser generator~\cite{Kantorowitz1986}. While these tools apply to text error messages, it illustrates that tools can improve error messages when they can interact with compiler internals. However, even detailed messages do not necessarily simplify understanding of error messages, which suggests that alternative representations of error notifications may sometimes be more appropriate~\cite{Nienaltowski2008,Denny2014}. 
 
 Hartmann and colleagues introduce a social recommendation system that presents examples of how other developers understand and correct errors~\cite{Hartmann2010}. In contrast, our approach argues that the compiler itself can offer its own reasoning process to aid developer comprehension. Other approaches attempt to provide better diagnostics or reduce false positives in compiler errors~\cite{Boustani2011,Campbell2014}. We expect that our visualizations can leverage such improvements in compiler technology. 
 
