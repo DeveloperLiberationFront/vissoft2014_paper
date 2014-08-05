@@ -1,0 +1,156 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{listings}
+\usepackage{upquote}
+\usepackage{xcolor}
+\usepackage{ulem}
+
+\usepackage{zi4}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{tikzmark}
+\usetikzlibrary{calc}%
+\usetikzlibrary{positioning,fit,backgrounds,decorations.pathmorphing}
+\usetikzlibrary{intersections}
+\usetikzlibrary{shapes}
+
+\pagestyle{empty}
+\begin{document}
+
+\lstdefinestyle{JavaSource}{
+  basicstyle=\ttfamily,
+  language=Java,
+  showstringspaces=false,  
+  % framexleftmargin=20pt,  
+  keepspaces=true,
+  % frame=single,
+}
+
+\lstdefinestyle{JavaError}{
+  basicstyle=\small\ttfamily,
+}
+
+\begin{lstlisting}[style=JavaSource,escapeinside={(*}{*)}]
+1    class Zebra {
+2       static class Stripe<X> {}
+3
+4       static class BlackStripe<(*\tikzmark{e}*)X extends Number(*\tikzmark{f}*)> extends Stripe<X> {
+       
+5            BlackStripe((*\tikzmark{i}*)X(*\tikzmark{j}*) (*\tikzmark{c}*)x(*\tikzmark{d}*)) {}
+6       }
+7
+8       Stripe<(*\tikzmark{g}*)String(*\tikzmark{h}*)> sf1 = new BlackStripe<>((*\tikzmark{a}*)"Marty"(*\tikzmark{b}*));
+9     }
+\end{lstlisting}
+
+\begin{tikzpicture}
+[remember picture,enum/.style={circle,draw=gray,very
+    thin,fill=black,text=white,inner sep=1pt}]
+
+  % Box Marty.
+  \coordinate[overlay] (marty top left) at
+  ($(pic cs:a) + (-0.1em, 0.9em)$);
+
+  \coordinate[overlay] (marty bottom right) at
+  ($(pic cs:b) + (0.1em,-0.3em)$);
+
+  \draw[fill opacity=0.3,fill=green!50,overlay,rounded corners]   
+    (marty top left) rectangle (marty bottom right);
+
+  % Box around little x.
+  \coordinate[overlay] (second top left) at
+    ($(pic cs:c) + (-0.1em, 0.9em)$);
+
+  \coordinate[overlay] (second bottom right) at
+    ($(pic cs:d) + (0.1em,-0.3em)$);
+
+  \draw[fill opacity=0.3,fill=red!50,overlay,rounded corners]   
+    (second top left) rectangle (second bottom right);
+
+  % Box around big x.
+  \coordinate[overlay] (big x top left) at
+    ($(pic cs:i) + (-0.1em, 0.9em)$);
+
+  \coordinate[overlay] (big x bottom right) at
+    ($(pic cs:j) + (0.1em,-0.3em)$);
+
+  \path[overlay] let \p1=(big x top left), \p2=(big x bottom right) 
+    in coordinate (big x top mid) at ($(\x1,\y1)!0.5!(\x2, \y1)$);
+
+ \path[overlay] let \p1=(big x top left), \p2=(big x bottom right) 
+    in coordinate (big x bottom mid) at ($(\x1,\y2)!0.5!(\x2, \y2)$);
+
+  \draw[fill opacity=0.3,fill=red!50,overlay,rounded corners]   
+    (big x top left) rectangle (big x bottom right);
+
+  % Go from Marty to x.
+  \path[overlay] let \p1=(marty top left), \p2=(marty bottom right) 
+    in coordinate (marty mid) at ($(\x1,\y1)!0.5!(\x2, \y1)$);
+
+  % Midpoint second bottom.
+  \path[overlay] let \p1=(second top left), \p2=(second bottom right) 
+    in coordinate (second bottom mid) at ($(\x1,\y2)!0.5!(\x2, \y2)$);
+
+  % Midpoint second top.
+  \path[overlay] let \p1=(second top left), \p2=(second bottom right) 
+    in coordinate (second top mid) at ($(\x1,\y1)!0.5!(\x2, \y1)$);    
+
+  \draw[overlay,>=latex,->] (marty mid) -- ($(marty mid) + (0em, 1em)$) 
+    -| (second bottom mid);
+  
+  % String box
+  \coordinate[overlay] (string top left) at
+    ($(pic cs:g) + (-0.1em, 0.9em)$);
+
+  \coordinate[overlay] (string bottom right) at
+    ($(pic cs:h) + (0.1em,-0.3em)$);
+
+  \draw[fill opacity=0.3,fill=red!50,overlay,rounded corners]   
+    (string top left) rectangle (string bottom right);
+
+  \path[overlay] let \p1=(string top left), \p2=(string bottom right) 
+    in coordinate (string top mid) at ($(\x1,\y1)!0.5!(\x2, \y1)$);    
+
+  \draw[overlay,>=latex,->] (string top mid) -- 
+      +(0, 1em) -| (big x bottom mid);
+
+  % X extends Number box
+  \coordinate[overlay] (third top left) at
+    ($(pic cs:e) + (-0.1em, 0.9em)$);
+
+  \coordinate[overlay] (third bottom right) at
+    ($(pic cs:f) + (0.1em,-0.3em)$);
+
+  \draw[fill opacity=0.3,fill=red!50,overlay,rounded corners]   
+    (third top left) rectangle (third bottom right);
+
+  \path[overlay] let \p1=(third top left), \p2=(third bottom right) 
+    in coordinate (third bottom mid) at ($(\x1,\y2)!0.5!(\x2, \y2)$);
+
+  \path[overlay] let \p1=(third top left), \p2=(third bottom right) 
+    in coordinate (third top mid) at ($(\x1,\y1)!0.5!(\x2, \y1)$);    
+
+  % Connector
+  \draw[overlay,>=latex,->] (big x top mid) -- +(0,0.5em) 
+    -| (third bottom mid);
+
+  % Loop around connector.
+  % \draw[overlay,>=latex,->] (third top mid) -- +(0, 0.5em) 
+  %   -- +(-22em, 0.5em) -- +(-22em, -5.0em) -| (string top mid);
+
+  % Draw conflict.
+  \coordinate[overlay] (top x) at ($(third top mid) + (-22em, 0.5em)$);
+  \coordinate[overlay] (bottom x) at ($(third top mid) + (-22em, -5.5em)$);
+
+  \draw[overlay] let \p1=($(big x top mid) + (0em, 0.5em)$), 
+    \p2=(third bottom mid) in
+      node[draw=red,cross out,
+        inner sep=2pt,fill=black,text=white,thick] at 
+          ($(\x1,\y1)!0.5!(\x2,\y1)$)
+  {};
+  
+\end{tikzpicture}
+
+\end{document}

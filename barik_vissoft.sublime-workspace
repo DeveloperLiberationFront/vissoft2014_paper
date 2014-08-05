@@ -1,0 +1,615 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"use",
+				"usepackage[options]{package}	latex-document"
+			],
+			[
+				"end",
+				"end{document}	intro.tex"
+			],
+			[
+				"beg",
+				"begin{verse}	latex-document"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 242.0,
+		"selected_items":
+		[
+			[
+				"gitadd",
+				"Git: Quick Add"
+			],
+			[
+				"open",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"packages",
+				"Package Control: List Packages"
+			],
+			[
+				"color",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"colors",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"update",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"latexing",
+				"Preferences: LaTeXing Settings - User (Extended)"
+			],
+			[
+				"clean",
+				"LaTeXing: Clean Temporary Output Dictionary"
+			],
+			[
+				"install pa",
+				"Package Control: Install Package"
+			],
+			[
+				"build",
+				"Build: Build"
+			],
+			[
+				"clean t",
+				"LaTeXing: Clean up (Remove) all Nonessential Files"
+			],
+			[
+				"upgrade ",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"gits",
+				"Git: Status"
+			],
+			[
+				"gstatu",
+				"Git: Status"
+			],
+			[
+				"init",
+				"Git: Init"
+			],
+			[
+				"sublimegi",
+				"SublimeGit: Version"
+			],
+			[
+				"version",
+				"Git: Version"
+			],
+			[
+				"Build: ",
+				"Build: Build"
+			],
+			[
+				"install p",
+				"Package Control: Install Package"
+			],
+			[
+				"cleante",
+				"LaTeXing: Clean Temporary Output Dictionary"
+			],
+			[
+				"laclean",
+				"LaTeXing: Clean Temporary Output Dictionary"
+			],
+			[
+				"lat",
+				"LaTeXing: Check System"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"texcoun",
+				"LaTeXing: Texcount"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"license",
+				"SublimeGit: Add License"
+			],
+			[
+				"Add lice",
+				"SublimeGit: Add License"
+			],
+			[
+				"git: status",
+				"Git: Status"
+			],
+			[
+				"brow",
+				"Preferences: Browse Packages"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"view.insert(pt = (3, 5), text = 'hi')",
+			"view.insert('pt', text = 'hi')",
+			"view.insert('pt', 'hi')",
+			"view.close()",
+			"view.insert(\"Hello!\")",
+			"view.insert(\"hello\")",
+			"view.close()",
+			"view.close",
+			"view.",
+			"view",
+			"view.window().run_command(\"compiler\")",
+			"view.window.run_command(\"compiler\")",
+			"window.run_command(\"compiler\")",
+			"view.run_command(\"compiler\")",
+			"view.run_command(\"example\")",
+			"view.run_command(\"enter\")",
+			"view.run_command",
+			"window",
+			"import latexing.tools",
+			"import tools",
+			"tools",
+			"import os; os.system('git --version')",
+			"print(sys.version)",
+			"import sys",
+			"import version",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/tbarik/Desktop/foo/.git/rebase-merge/git-rebase-todo",
+		"/c/Users/tbarik/Desktop/foo/README",
+		"/C/Users/tbarik/Desktop/foo/.git/COMMIT_EDITMSG",
+		"/c/Users/tbarik/Dropbox/vissoft2014/.git/info/exclude",
+		"/c/Users/tbarik/Dropbox/vissoft2014/.gitignore",
+		"/C/Users/tbarik/Dropbox/errormsg/experiment/explanation/ToughExamples/InvoiceScreen.tex",
+		"/C/Users/tbarik/Dropbox/vissoft2014/www/index.php",
+		"/C/Users/tbarik/Dropbox/errormsg/experiment/explanation/ToughExamples/BluePrinted.tex",
+		"/C/Users/tbarik/Dropbox/errormsg/experiment/explanation/ToughExamples/InvoicePrinted.tex",
+		"/C/Users/tbarik/Documents/Research/onward2014/sample.tex",
+		"/C/Users/tbarik/Dropbox/errormsg/corpus/diagrunner/examples/NameClashSameErasureNoHide.java",
+		"/C/Users/tbarik/Dropbox/errormsg/experiment/explanation/ToughExamples/KitePrinted.tex",
+		"/C/Users/tbarik/Dropbox/errormsg/experiment/explanation/ToughExamples/QuarzPrinted.tex",
+		"/C/Users/tbarik/Dropbox/errormsg/experiment/explanation/ToughExamples/RainstormPrinted.tex",
+		"/C/Users/tbarik/Dropbox/errormsg/experiment/explanation/ToughExamples/src/Rainstorm.java",
+		"/C/Users/tbarik/Dropbox/vissoft2014/latex/barik_vissoft.tex",
+		"/C/Users/tbarik/Dropbox/vissoft2014/experiment/tasks/T1/T1.java",
+		"/C/Users/tbarik/Dropbox/vissoft2014/latex/library.bib",
+		"/C/Users/tbarik/Downloads/bare_adv.tex",
+		"/C/Users/tbarik/Dropbox/vissoft2014/latex/bare_conf.tex",
+		"/C/Users/tbarik/Dropbox/vissoft2014/latex/barik_vissoft.bbl",
+		"/C/Users/tbarik/Dropbox/dissertation/vlhcc_proposal/barik_vlhcc.tex",
+		"/C/Users/tbarik/Dropbox/errormsg/experiment/explanation/UndergradExamples/AppleExplainScreen.tex",
+		"/C/Users/tbarik/Dropbox/vissoft2014/latex/figures/TrumpetExplainScreen.tex",
+		"/C/Users/tbarik/Dropbox/vissoft2014/latex/figures/AppleExplainScreen.tex",
+		"/C/Users/tbarik/Dropbox/vissoft2014/latex/barik_vissoft.sublime-project",
+		"/C/Users/tbarik/Dropbox/vissoft2014/latex/figures/MelonWavyScreen.tex",
+		"/C/Users/tbarik/Dropbox/vissoft2014/latex/figures/MelonExplainScreen.tex",
+		"/C/Users/tbarik/Dropbox/vissoft2014/latex/threats_vissoft.tex",
+		"/C/Users/tbarik/Dropbox/errormsg/classroom_pilot/protocol.txt",
+		"/C/Users/tbarik/Dropbox/errormsg/corpus/diagrunner/examples/AlreadyDefinedStaticImport/AlreadDefinedStaticImport.java",
+		"/C/Users/tbarik/Dropbox/errormsg/experiment/explanation/UndergradExamples/ZebraPrinted.tex",
+		"/C/Users/tbarik/Dropbox/errormsg/experiment/explanation/UndergradExamples/MelonPrinted.tex",
+		"/C/Users/tbarik/Dropbox/vissoft2014/latex/figures/annotation_table.tex",
+		"/C/Users/tbarik/Dropbox/errormsg/corpus/diagrunner/src/README.examples.txt",
+		"/C/Users/tbarik/Dropbox/vissoft2014/latex/figures/ZebraWavyScreen.tex",
+		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.314/barik_fie2013.tex",
+		"/C/Users/tbarik/Documents/Research/onward2014/barik_onward.tex",
+		"/C/Users/tbarik/Dropbox/errormsg/experiment/explanation/UndergradExamples/Cheatsheet.tex",
+		"/C/Users/tbarik/Dropbox/vissoft2014/sasjmp/Figure1.tex",
+		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.944/T1.java",
+		"/C/Users/tbarik/Dropbox/vissoft2014/process_userstorage/csv/zipparse.csv",
+		"/C/Users/tbarik/Dropbox/vissoft2014/process_userstorage/csv/zipreduce.csv",
+		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa1.603/T1.java",
+		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.246/T4.java",
+		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.765/T4.java",
+		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.733/T5.java",
+		"/C/Users/tbarik/Dropbox/vissoft2014/analysis/zipparse.csv",
+		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.035/T4.java",
+		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.625/T4.java",
+		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.344/T4.java",
+		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.568/T4.java",
+		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.783/T1.java",
+		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.812/T2.java",
+		"/C/Users/tbarik/AppData/Roaming/Sublime Text 3/Packages/LaTeXing/Default.sublime-keymap",
+		"/C/Users/tbarik/AppData/Roaming/Sublime Text 3/Packages/LaTeXing/LaTeXing.sublime-settings",
+		"/C/Users/tbarik/Dropbox/dissertation/vlhcc_proposal/IEEEabrv.bib",
+		"/C/Users/tbarik/Dropbox/dissertation/vlhcc_proposal/IEEEexample.bib",
+		"/C/Users/tbarik/Downloads/cox_export_csv.sql",
+		"/C/Users/tbarik/Downloads/cox_export_month.sql",
+		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.253/T2.java",
+		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.278/T2.java",
+		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.598/T2.java",
+		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.517/T1.java",
+		"/C/Users/tbarik/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/tbarik/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/tbarik/Desktop/vissoft2014/latex/barik_vissoft.tex",
+		"/C/Users/tbarik/Desktop/process_userstorage/userstorage/P949-T1-20140505",
+		"/C/Users/tbarik/Documents/Resume/barikphd_cv/barik_cv_phd.tex",
+		"/C/Users/tbarik/Desktop/src/ice9.py",
+		"/C/Users/tbarik/Desktop/src/ast.py",
+		"/C/Users/tbarik/Desktop/src/grammar.py",
+		"/C/Users/tbarik/Desktop/src/tokrules.py",
+		"/C/Users/tbarik/Desktop/blaze/Prodet Trial Oct-Jan 2013 Selected Users.csv",
+		"/C/Users/tbarik/Dropbox/dissertation/vlhcc_proposal/library.bib",
+		"/C/Users/tbarik/Dropbox/dissertation/vlhcc_proposal/barik_vlhcc.bbl",
+		"/C/Users/tbarik/Desktop/andrew/tasks/Task1.java",
+		"/C/Users/tbarik/Desktop/eclipse.jdt.core/org.eclipse.jdt.core/compiler/org/eclipse/jdt/core/compiler/CompilationProgress.java",
+		"/C/Users/tbarik/Desktop/vlhcc_proposal/barik_vlhcc.tex",
+		"/C/Users/tbarik/Desktop/eclipse.jdt.core/org.eclipse.jdt.annotation/src/org/eclipse/jdt/annotation/package-info.java",
+		"/C/Users/tbarik/Desktop/eclipse.jdt.core/org.eclipse.jdt.annotation/src/org/eclipse/jdt/annotation/NonNullByDefault.java",
+		"/C/Users/tbarik/Desktop/eclipse.jdt.core/org.eclipse.jdt.annotation/src/org/eclipse/jdt/annotation/DefaultLocation.java",
+		"/C/Users/tbarik/Desktop/eclipse.jdt.core/org.eclipse.jdt.core/grammar/java.g",
+		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.705/BatchCompiler.java",
+		"/C/experiment/compile.bat",
+		"/C/experiment/Program.java",
+		"/C/Users/tbarik/Desktop/vlhcc_proposal/barik_vlhcc.sublime-project",
+		"/C/Users/tbarik/Desktop/vlhcc_proposal/library.bib",
+		"/C/Users/tbarik/Desktop/vlhcc_proposal/figures/tikz_overlay_classic.tex",
+		"/C/Users/tbarik/Desktop/vlhcc_proposal/.gitignore",
+		"/C/Users/tbarik/Desktop/vlhcc_proposal/figures/tikz_overlay.tex",
+		"/C/Users/tbarik/Documents/Research/fixbugs/tex/approach.tex",
+		"/C/Users/tbarik/Documents/Research/fixbugs/tex/conclusion.tex",
+		"/C/Users/tbarik/Documents/Research/fixbugs/tex/abstract.tex",
+		"/C/Users/tbarik/Desktop/tex/codesamp.tex",
+		"/C/Users/tbarik/Documents/Research/errormsg/icsenier2014/barik_icse.tex",
+		"/C/Users/tbarik/Dropbox/Wayne CC Report - FIE '13/fie2013/barik_fie2013.tex",
+		"/C/Users/tbarik/Desktop/vlhcc_proposal/changelog.txt",
+		"/C/Users/tbarik/Dropbox/Wayne CC Report - FIE '13/fie2013/figures/src/explorepython_prelab.tex",
+		"/C/Users/tbarik/Dropbox/Wayne CC Report - FIE '13/fie2013/figures/src/explorepython_hw.tex",
+		"/C/Users/tbarik/Desktop/vlhcc_proposal/barik_vlhcc.aux",
+		"/C/Users/tbarik/Desktop/vlhcc_proposal/unix_latex_template.tar.gz",
+		"/C/Users/tbarik/Desktop/vlhcc_proposal/IEEEtran.cls",
+		"/C/Users/tbarik/Desktop/vlhcc_proposal/Output/barik_vlhcc.fdb_latexmk",
+		"/C/Users/tbarik/Desktop/vlhcc_proposal/Output/barik_vlhcc.bbl",
+		"/C/Users/tbarik/Documents/Research/fixbugs/tex/approach_ma.tex",
+		"/C/Users/tbarik/Documents/Research/fixbugs/tex/experiment_design.tex",
+		"/C/Users/tbarik/Documents/Research/errormsg/icsenier2014/library.bib",
+		"/C/Users/tbarik/Desktop/vlhcc_proposal/IEEEexample.bib",
+		"/C/Users/tbarik/Desktop/vlhcc_proposal/IEEEfull.bib",
+		"/C/Users/tbarik/Desktop/onward14/barik-onward14.tex",
+		"/C/Users/tbarik/Desktop/onward14/library.bib",
+		"/C/Users/tbarik/Desktop/vlhcc_proposal/bare_conf.tex",
+		"/C/Users/tbarik/Desktop/vlhcc_proposal/README",
+		"/C/Users/tbarik/Desktop/vlhcc_proposal/bare_adv.tex",
+		"/C/Users/tbarik/Desktop/onward14/Output/barik-onward14.bbl",
+		"/C/Users/tbarik/Desktop/onward14/barik-onward.md",
+		"/C/Users/tbarik/AppData/Roaming/Sublime Text 3/Packages/User/Markdown (Standard).sublime-settings",
+		"/C/Users/tbarik/AppData/Local/Temp/MSIa8e3e.LOG",
+		"/C/Users/tbarik/Desktop/onward14/sigplanconf-template.tex",
+		"/C/Users/tbarik/Desktop/onward14/barik-onward.sublime-project",
+		"/C/Program Files/MiKTeX 2.9/miktex/config/update-2014-03-28-18-40.log",
+		"/c/opt/clingo-4.3.0-win64/tohE.lp",
+		"/c/opt/clingo-4.3.0-win64/roads.lp",
+		"/c/opt/clingo-4.3.0-win64/NOTES",
+		"/c/opt/clingo-4.3.0-win64/CHANGES",
+		"/C/Users/tbarik/Downloads/CHANGES",
+		"/C/Users/tbarik/Downloads/ACT-R/models/U1Addition.actr"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 92.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"This",
+			"Apple",
+			"<</",
+			"Apple",
+			"computer science",
+			"software eng",
+			"third-year",
+			"mental models",
+			"mental",
+			"mental models",
+			"threats",
+			"undergrad",
+			"understanding",
+			"understand",
+			"source code listing",
+			"random asssigned",
+			"end-result",
+			"explanatory",
+			"messages",
+			"marker",
+			"access",
+			"interactive",
+			"randomly",
+			"through the",
+			"again",
+			".19",
+			"margin",
+			"TODO",
+			"contrast",
+			"related",
+			"self-ex",
+			"Compiler",
+			"title",
+			"melon",
+			"zebra",
+			"lim",
+			"partmelon",
+			"Consistency",
+			"viztax",
+			"visual annotation legend",
+			"description",
+			"repeated",
+			"reliably",
+			"x",
+			"Varmight",
+			"underly",
+			"tabularx",
+			"openjdk",
+			"subfloat",
+			"zebra",
+			"listinf",
+			"verbatim",
+			"]\n",
+			"we projected",
+			"we proejcted",
+			"we projected",
+			"Previously",
+			"correctness",
+			"statistically sig",
+			"begin{table",
+			"tabularx",
+			"explanation and",
+			"table",
+			"\\begin{figure",
+			"figure",
+			"subfig",
+			"table",
+			"begin{fi",
+			"\\begin{figure",
+			"figure",
+			"State",
+			"contributions",
+			"\".",
+			"t_error",
+			"Too much, too",
+			"Too little",
+			"ontology",
+			"ller",
+			"wrap",
+			"instead",
+			"ulem",
+			"bottom",
+			"bbottom",
+			"in bottom",
+			"hartman",
+			"lst:ma",
+			"figure",
+			"subfig",
+			"figure",
+			"case",
+			"png",
+			"subfig",
+			"listing",
+			"lstlisting",
+			"lstlis",
+			"overlay",
+			"Barista",
+			"cite",
+			"tikzmark",
+			"graphicx",
+			"graphics",
+			"listing",
+			"figure",
+			"includegraph",
+			"graphic",
+			"footnote",
+			"figure",
+			"Track",
+			"#hide",
+			"install-device",
+			"start",
+			"balance",
+			"caption",
+			"usepackage",
+			"caption",
+			"usapackage",
+			"figure",
+			"category",
+			"keywords",
+			"caption",
+			"figure",
+			"Other resear",
+			"microtype",
+			"Identifying top java",
+			"Refactoring",
+			"metadata",
+			"fig:interaction",
+			"figure"
+		],
+		"highlight": true,
+		"in_selection": true,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"Trumpet",
+			"Melon"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 186.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git-commit":
+	{
+		"height": 102.0
+	},
+	"project": "barik_vissoft.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"tex",
+				"barik_vlhcc.tex"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\tbarik\\Desktop\\vissoft2014\\latex\\barik_vissoft.sublime-workspace"
+			],
+			[
+				"vl",
+				"C:\\Users\\tbarik\\Dropbox\\errormsg\\vlhcc2014\\vlhcc.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 248.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

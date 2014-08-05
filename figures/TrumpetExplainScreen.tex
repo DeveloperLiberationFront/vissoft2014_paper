@@ -1,0 +1,173 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{listings}
+\usepackage{upquote}
+\usepackage{xcolor}
+\usepackage{ulem}
+
+\usepackage{zi4}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{tikzmark}
+\usetikzlibrary{calc}%
+\usetikzlibrary{positioning,fit,backgrounds,decorations.pathmorphing}
+\usetikzlibrary{intersections}
+\usetikzlibrary{shapes}
+
+\pagestyle{empty}
+\begin{document}
+
+\section*{Screen Listing for Trumpet.java}
+
+\lstdefinestyle{JavaSource}{
+  basicstyle=\ttfamily,
+  language=Java,
+  showstringspaces=false,  
+  %framexleftmargin=20pt,  
+  keepspaces=true,
+  %frame=single,
+}
+
+\lstdefinestyle{JavaError}{
+  basicstyle=\small\ttfamily,
+}
+
+\begin{lstlisting}[style=JavaSource,escapeinside={(*}{*)}]
+ 1    import java.io.*;
+ 2
+ 3    class Trumpet {
+ 4
+ 5        void play() {
+ 6            try {
+            
+ 7                if (true) {
+ 8                    throw new (*\tikzmark{a}*)FileNotFoundException()(*\tikzmark{b}*);
+ 9                }
+10                else {
+11                    throw new (*\tikzmark{c}*)EOFException()(*\tikzmark{d}*);
+12                }
+13           }
+        
+14           catch((*\tikzmark{e}*)FileNotFoundException(*\tikzmark{f}*) fnf) { }
+        
+15           catch((*\tikzmark{g}*)EOFException(*\tikzmark{h}*) eof) { }
+        
+16           catch((*\tikzmark{i}*)IOException(*\tikzmark{j}*) ex) { }
+17       }
+18    }
+\end{lstlisting}
+
+\begin{tikzpicture}
+[remember picture,enum/.style={circle,draw=gray,very
+    thin,fill=black,text=white,inner sep=1pt}]
+
+  % Box for FileNotFoundException.
+  \coordinate[overlay] (throw FileNotFoundException top left) at
+    ($(pic cs:a) + (-0.1em, 0.9em)$);
+
+  \coordinate[overlay] (throw FileNotFoundException bottom right) at
+    ($(pic cs:b) + (0.1em,-0.3em)$);
+
+  \path[overlay] let \p1=(throw FileNotFoundException top left), 
+    \p2=(throw FileNotFoundException bottom right) in
+      coordinate (throw FileNotFoundException top mid) 
+        at ($(\x1, \y1)!0.5!(\x2, \y1)$);
+
+  \draw[fill opacity=0.3,fill=red!50,overlay,rounded corners]   
+    (throw FileNotFoundException top left) rectangle 
+    (throw FileNotFoundException bottom right);
+
+  % Box for EOFException.
+  \coordinate[overlay] (throw EOFException top left) at
+    ($(pic cs:c) + (-0.1em, 0.9em)$);
+
+  \coordinate[overlay] (throw EOFException bottom right) at
+    ($(pic cs:d) + (0.1em,-0.3em)$);
+
+  \draw[fill opacity=0.3,fill=red!50,overlay,rounded corners]   
+    (throw EOFException top left) rectangle 
+    (throw EOFException bottom right);
+
+  \path[overlay] let \p1=(throw EOFException top left), 
+    \p2=(throw EOFException bottom right) in
+      coordinate (throw EOFException bottom mid) 
+        at ($(\x1, \y2)!0.5!(\x2, \y2)$);
+
+  % Box for catch FileNotFoundException.
+  \coordinate[overlay] (catch FileNotFoundException top left) at
+    ($(pic cs:e) + (-0.1em, 0.9em)$);
+
+  \coordinate[overlay] (catch FileNotFoundException bottom right) at
+    ($(pic cs:f) + (0.1em,-0.3em)$);
+
+  \path[overlay] let \p1=(catch FileNotFoundException top left), 
+    \p2=(catch FileNotFoundException bottom right) in
+      coordinate (catch FileNotFoundException top mid) 
+        at ($(\x1, \y1)!0.5!(\x2, \y1)$);
+
+  \draw[fill opacity=0.3,fill=red!50,overlay,rounded corners]   
+    (catch FileNotFoundException top left) rectangle 
+    (catch FileNotFoundException bottom right);
+
+  % Box for catch EOFException.
+  \coordinate[overlay] (catch EOFException top left) at
+    ($(pic cs:g) + (-0.1em, 0.9em)$);
+
+  \coordinate[overlay] (catch EOFException bottom right) at
+    ($(pic cs:h) + (0.1em,-0.3em)$);
+
+  \draw[fill opacity=0.3,fill=red!50,overlay,rounded corners]   
+    (catch EOFException top left) rectangle 
+    (catch EOFException bottom right);
+
+  \path[overlay] let \p1=(catch EOFException top left), 
+    \p2=(catch EOFException bottom right) in
+      coordinate (catch EOFException top mid) 
+        at ($(\x1, \y1)!0.5!(\x2, \y1)$);
+
+  % Box for catch IOException.
+  \coordinate[overlay] (catch IOException top left) at
+    ($(pic cs:i) + (-0.1em, 0.9em)$);
+
+  \coordinate[overlay] (catch IOException bottom right) at
+    ($(pic cs:j) + (0.1em,-0.3em)$);
+
+   \path[overlay] let \p1=(catch IOException top left), 
+    \p2=(catch IOException bottom right) in
+      coordinate (catch IOException bottom mid) 
+        at ($(\x1, \y2)!0.5!(\x2, \y2)$);
+
+  \draw[fill opacity=0.3,fill=green!50,overlay,rounded corners]   
+    (catch IOException top left) rectangle 
+    (catch IOException bottom right);
+
+  % Enumerate
+  \node[overlay] (node 1) at ($(catch IOException bottom mid) + (4em, -2em)$) [overlay,enum,fill=red!10,draw=black,text=black] {\tiny \textbf{?}};
+
+  \draw[overlay,>=latex,->] (catch IOException bottom mid) |- (node 1.west);
+
+  % Draw the connector for the FileNotFound exceptions.
+  \draw[overlay,>=latex,->] (catch FileNotFoundException top mid) -- +(0, 0.5em) 
+    -- +(-12em, 0.5em) -- +(-12em, 10em)
+    -| (throw FileNotFoundException top mid);
+
+  % And the EOFException
+  \draw[overlay,>=latex,->] (catch EOFException top mid) -- +(0, 0.5em) 
+    -- +(17em, 0.5em) -- +(17em, 4em)
+    -| (throw EOFException bottom mid);  
+
+\end{tikzpicture}
+
+\section*{Compiler Output}
+
+\begin{lstlisting}[style=JavaError]
+Trumpet.java:16: warning: unreachable catch clause
+        catch(IOException ex) { }
+        ^
+  thrown types FileNotFoundException,EOFException have already been caught
+1 warning
+\end{lstlisting}
+
+\end{document}

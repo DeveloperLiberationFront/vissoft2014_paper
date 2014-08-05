@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{listings}
+\usepackage{upquote}
+\usepackage{xcolor}
+\usepackage{ulem}
+
+\usepackage{zi4}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{tikzmark}
+
+\usepackage{ulem}
+
+\makeatletter \def\redwave{\bgroup
+  \markoverwith{\lower3.5\p@\hbox{\sixly
+      \textcolor{red}{\char58}}}\ULon}
+\font\sixly=lasy6 % does not re-load if already loaded, so no memory problem.
+\makeatother
+
+\pagestyle{empty}
+\begin{document}
+
+\lstdefinestyle{JavaSource}{
+  basicstyle=\ttfamily,
+  language=Java,
+  showstringspaces=false,
+  % numbers=left,
+  moredelim=[is][\redwave]{|}{|},
+  keepspaces=true,
+  % frame=single,
+}
+
+\lstdefinestyle{JavaError}{
+  basicstyle=\small\ttfamily,
+}
+
+\begin{lstlisting}[style=JavaSource]
+1    class Zebra {
+2       static class Stripe<X> {}
+3
+4       static class BlackStripe<X extends Number> extends Stripe<X> {
+5            BlackStripe(X x) {}
+6       }
+7
+8       Stripe<String> sf1 = new BlackStripe<>|("Marty")|;
+9    }
+\end{lstlisting}
+
+\end{document}

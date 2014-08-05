@@ -1,0 +1,94 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{listings}
+\usepackage{upquote}
+\usepackage{xcolor}
+\usepackage{ulem}
+
+\usepackage{zi4}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{tikzmark}
+\usetikzlibrary{calc}%
+\usetikzlibrary{positioning,fit,backgrounds,decorations.pathmorphing}
+\usetikzlibrary{intersections}
+\usetikzlibrary{shapes}
+
+\pagestyle{empty}
+\begin{document}
+
+\lstdefinestyle{JavaSource}{
+  basicstyle=\ttfamily,
+  language=Java,
+  showstringspaces=false,  
+  % framexleftmargin=20pt,  
+  keepspaces=true,
+  % frame=single,
+}
+
+\lstdefinestyle{JavaError}{
+  basicstyle=\small\ttfamily,
+}
+
+\begin{lstlisting}[style=JavaSource,escapeinside={(*}{*)}]
+class Apple {
+
+    (*\tikzmark{a}*)public(*\tikzmark{b}*) (*\tikzmark{c}*)public(*\tikzmark{d}*) String toString() {
+        return "Red"; 
+    }
+}
+\end{lstlisting}
+
+\begin{tikzpicture}
+[remember picture,enum/.style={circle,draw=gray,very
+    thin,fill=black,text=white,inner sep=1pt}]
+
+  % Box around error location.
+  % First Box
+  \coordinate[overlay] (first top left) at
+  ($(pic cs:a) + (-0.1em, 0.9em)$);
+
+  \coordinate[overlay] (first bottom right) at
+  ($(pic cs:b) + (0.1em,-0.3em)$);
+
+  % Compute the midpoint for the first box.
+  \path[overlay] let \p1=(first top left), 
+    \p2=(first bottom right) in
+      coordinate (first mid) at ($(\x1, \y1)!0.5!(\x2, \y1)$);
+
+  \draw[fill opacity=0.3,fill=green!50,overlay,rounded corners] 
+    (first top left) rectangle (first bottom right);
+
+  % Second Box
+  \coordinate[overlay] (second top left) at
+    ($(pic cs:c) + (-0.1em, 0.9em)$);
+
+  \coordinate[overlay] (second bottom right) at
+    ($(pic cs:d) + (0.1em,-0.3em)$);
+
+  % Compute the midpoint of the second box.  
+  \path[overlay] let \p1=(second top left), 
+    \p2=(second bottom right) in
+      coordinate (second mid) at ($(\x1, \y1)!0.5!(\x2, \y1)$);
+  
+  \draw[fill opacity=0.3,fill=red!50,overlay,rounded corners] 
+    (second top left) rectangle (second bottom right);
+
+  % Draw connecting line.
+  \draw[overlay,>=latex,->] (first mid) -- ($(first mid) + (0,0.9em)$) 
+    -- ($(second mid) + (0,0.9em)$) -- (second mid);
+
+  % Connecting line from X x to X extends Number.
+
+  \draw[overlay] let \p1=($(first mid) + (0em, 0.9em)$), 
+    \p2 = ($(second mid) + (0em, 0.9em)$) in 
+      node[draw=red,cross out,
+        inner sep=2pt,fill=black,text=white,thick] at 
+          ($(\x1,\y1)!0.5!(\x2,\y2)$)
+  {};
+
+\end{tikzpicture}
+
+\end{document}
