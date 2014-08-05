@@ -291,7 +291,7 @@ This composite annotation demonstrates that several basic annotations can be com
     thin,fill=black,text=white,inner sep=1pt] at (0,0) {\tiny 1};
 \end{tikzpicture} and \begin{tikzpicture}
  \node[circle,draw=gray,very
-    thin,fill=black,text=white,inner sep=1pt] at (0,0) {\tiny 1};
+    thin,fill=black,text=white,inner sep=1pt] at (0,0) {\tiny 2};
 \end{tikzpicture} provide the developer with convenient labels for referring to the branches (for example, ``It looks like it works fine in branch 1, but not in branch 2''). The final component is another explanatory code block indicating one possible condition under which the branch would be executed.
 
 Thus, the composite annotation indicates that \texttt{i = 3}, and all statements within branch 1 will be executed when \texttt{b = true}. This composite annotation is then used to show the developer a counterexample in which \texttt{i} would be uninitialized. A simple text explanation stating that \texttt{i is uninitialized when b = false} would have provided the same conclusion, but we hypothesize that the intermediate steps in the explanation are important for developer comprehension.
