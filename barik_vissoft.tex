@@ -95,11 +95,12 @@ tbarik@ncsu.edu, kjlubick@ncsu.edu, schrist@ncsu.edu, emerson@csc.ncsu.edu}
 \maketitle
 
 \begin{abstract}
-Self-explanation is one cognitive strategy through which developers comprehend error notifications. Self-explanation, when left solely to developers, can result in a significant loss of productivity because humans are imperfect and bounded in their cognitive abilities. We argue that modern IDEs offer limited visual affordances for aiding developers with self-explanation, because compilers perform sophisticated reasoning about the causes of  error messages, but do not reveal this reasoning process to the developer.
+Self-explanation is one cognitive strategy through which developers comprehend error notifications. Self-explanation, when left solely to developers, can result in a significant loss of productivity because humans are imperfect and bounded in their cognitive abilities. We argue that modern IDEs offer minimal visual affordances for aiding developers with self-explanation,
+because compilers do not reveal their reasoning about the causes of errors to the developer.
 
 The contribution of our paper is a foundational set of visual annotations that aid developers in better comprehending error messages when compilers expose their internal reasoning. We demonstrate through a user study of 28 undergraduate Software Engineering students that our annotations align with the way in which developers self-explain error notifications. We show that these annotations allow developers to give significantly better self-explanations when compared against today's dominant visualization paradigm, and that better self-explanations yield better mental models of notifications.
 
-The results of our work suggest the diagrammatic techniques developers use to explain problems to others and to themselves can serve as an effective foundation for how IDEs should visually communicate to developers.
+The results of our work suggest that the diagrammatic techniques developers use to explain problems can serve as an effective foundation for how IDEs should visually communicate to developers.
 
 
 \end{abstract}
@@ -166,20 +167,20 @@ Melon.java:7: error:
   \caption{A comparison of a potentially uninitialized variable compiler error through (a) baseline visualizations, the dominant paradigm as found in IDEs today, (b) our explanatory visualizations, and (c) the textual error message.\label{fig:melon}}
 \end{figure}
 
-Modern integrated development environments (IDEs), such as Eclipse, IntelliJ, and Visual Studio, offer a number of visualizations to assist developers in more effectively identifying and comprehending compiler error notifications. For example, in addition to the full error message text found in a console output or dedicated error window, such notifications may include an indicator in one or more margins, along with a red wavy underline visualization overlaid on the source text to indicate a relevant location of the error.
+Modern integrated development environments (IDEs), such as Eclipse, IntelliJ, and Visual Studio, offer a number of visualizations to assist developers in more effectively identifying and comprehending compiler error notifications. For example, in addition to the full error message text found in a console output or dedicated error window, such notifications may include an indicator in one or more margins along with a red wavy underline visualization overlaid on the source text to indicate a relevant location of the error.
 
 % The IDE may also use tooltips, visual popups containing a textual error description; these are activated when the mouse hovers over the red wavy underline visualization.
 
-Many developers consider these error notifications to be cryptic and confusing~\cite{Traver2010}. We postulate one of the reasons error notifications are confusing for developers is because compilers use a sophisticated reasoning process to determine that an error exists in the source code, but do not reveal this reasoning process to either the IDE or the developer.
+Many developers consider these error notifications to be cryptic and confusing~\cite{Traver2010}. We postulate one of the reasons error notifications are confusing is because compilers do not reveal the reasoning used to determine that the error exists.
 
-More explicitly, in order to generate an error notification, the compiler begins with the source code, collects information during its compilation, uses that information to identify that a problem exists, and notifies the developer of the problem through the IDE. Yet, for developers to comprehend the notification, they must mentally duplicate this process through \textit{self-explanation}~\cite{Parnin2011} in essentially reverse order --- starting with the error notification, the developer must identify what they think the problem might be from the IDE's presentation, mentally collect all of the program components related to this problem, and finally identify the area or areas of source code necessary to correct the particular defect. This self-explanation process, when left solely to the developer, can result in a significant loss of productivity because humans are imperfect and bounded in knowledge, attention, and expertise~\cite{Ko2005}. \textit{But much of this self-explanation process may be completely unnecessary since the reasoning process that resulted in the error notification was already known to the compiler.}\footnote{As Bret Victor points out his talk ``Inventing on Principle'' (CUSEC 2012): ``If we're writing our code on a computer, why are we simulating what a computer would do in our head? Why doesn't the computer just do it, and show us?''}
+More explicitly, in order to generate an error notification, the compiler begins with the source code, collects information during its compilation, uses that information to identify that a problem exists, and notifies the developer of the problem through the IDE. Yet, for developers to comprehend the notification, they must mentally duplicate this process through \textit{self-explanation}~\cite{Parnin2011} in essentially reverse order --- starting with the error notification, the developer must identify what they think the problem might be from the IDE's presentation, mentally collect all of the program components related to this problem, and finally identify the area or areas of source code necessary to correct the particular defect. This self-explanation process, when left solely to the developer, can result in a significant loss of productivity because humans are imperfect and bounded in knowledge, attention, and expertise~\cite{Ko2005}. \textit{Much of this self-explanation process may be completely unnecessary since the reasoning process that resulted in the error notification was already known to the compiler.}\footnote{As Bret Victor points out his talk ``Inventing on Principle'' (CUSEC 2012): ``If we're writing our code on a computer, why are we simulating what a computer would do in our head? Why doesn't the computer just do it, and show us?''}
 
-Visualizations in IDEs, such a red wavy underlines and margin indicators, take the perspective that compilers are \textit{opaque} black boxes, and thus by design are limited in their affordances for helping developers in comprehending error notifications. In this paper, we argue that developers stand to significantly benefit when compilers are made more \textit{transparent} and expose their internal reasoning process to visualization systems. We argue that such systems can leverage these structures to generate expressive, \textit{explanatory visualizations} that align with the way in which developers self-explain error notifications. Our contributions in this paper are:
+Visualizations in IDEs, such a red wavy underlines and margin indicators, take the perspective that compilers are \textit{opaque} black boxes and thus by design are limited in their affordances for helping developers in comprehending error notifications. In this paper, we argue that developers stand to significantly benefit when compilers are made more \textit{transparent} and expose their internal reasoning process to visualization systems. We argue that such systems can leverage these structures to generate expressive, \textit{explanatory visualizations} that align with the way in which developers self-explain error notifications. Our contributions in this paper are:
 
 \begin{itemize}
 \item A foundational set of composable visual annotations that aid developers in better comprehending error messages.
-\item An \textit{explanation task} evaluation, using a set of paper mockups, which demonstrates our explanatory visualizations yield more correct self-explanations than the baseline visualizations used in IDEs today. These annotations are used intuitively by developers in their own self-explanations of error messages, even when explanatory visualizations have not been provided to them.
-\item A \textit{recall task} evaluation, in which developers write programs in a minimalistic programming environment to intentionally generate compile errors, which demonstrates better self-explanations enable developers to construct better mental models of error notifications.
+\item An \textit{explanation task} evaluation, using a set of paper mockups, which demonstrates that our explanatory visualizations yield more correct self-explanations than the baseline visualizations used in IDEs today. These annotations are used intuitively by developers in their own self-explanations of error messages, even when explanatory visualizations have not been provided to them.
+\item A \textit{recall task} evaluation, in which developers write programs in a minimalistic programming environment to intentionally generate compile errors, which demonstrates that better self-explanations enable developers to construct better mental models of error notifications.
 \end{itemize}
 
 \section{Motivating Example}
@@ -196,7 +197,7 @@ This false hypothesis remains uncorrected by the IDE. In his IDE, the red wavy u
 
 In contrast, consider our approach, shown in Figure~\ref{fig:melon:explanatory}. Here, Yoonki may not experience the same knowledge breakdown, because the IDE provides a visual explanation of the problem within his source code. Though Yoonki might once again incorrectly assume \texttt{final} variables must be initialized at declaration, the visualization implies that the problem is actually related to control flow. Specifically, the explanatory visualization is showing Yoonki there is a code path in which \texttt{i} is assigned a value (when \texttt{b = true}), and another code path where it is not (when \texttt{b = false}). This time, Yoonki correctly fixes the defect by adding an \texttt{else} statement to the condition, initializing it with an appropriate value in the case when \texttt{b = false}.
 
-This hypothetical scenario illustrates why the dominant visualization paradigm is not sufficient in supporting the process of self-explanation. As we argue in this paper, this scenario is illustrative of the more general problem with the output of program analysis tools: these tools present only the end-result of the complex reasoning process and therefore do not support the developer in self-explaining.
+This hypothetical scenario illustrates why the dominant visualization paradigm is not sufficient in supporting the process of self-explanation. As we argue in this paper, this scenario is illustrative of a more general problem with the output of program analysis tools: these tools present only the end-result of the complex reasoning process and therefore do not support the developer in self-explaining.
 
 \section{Pilot Study}
 \label{sec:pilotstudy}
@@ -208,11 +209,11 @@ This hypothetical scenario illustrates why the dominant visualization paradigm i
 \toprule
 Annotation & Frequency & Description\\
 \midrule
-Point & 49 & Indicates that a particular token or set of tokens has been marked. Examples include underlining or circles the token(s).\\
+Point & 49 & A particular token or set of tokens has been marked. Examples include underlining or circles the token(s).\\
 [0.2cm]
-Text & 45 & Indicates natural language text. For example, ``assign a value to the variable'' or ``dead code''.\\
+Text & 45 & Natural language text. For example, ``assign a value to the variable'' or ``dead code''.\\
 [0.2cm]
-Association & 33 & Indicates an association between two or more program elements, which is accomplished by drawing a connecting line between the elements, with or without arrow heads.\\
+Association & 33 & An association between two or more program elements, which is accomplished by drawing a connecting line between the elements, with or without arrow heads.\\
 [0.2cm]
 Symbol & 20 & Symbols include visual annotation such as \texttt{?} or \texttt{x}, or numbered circles, to name a few.\\
 [0.2cm]
@@ -227,7 +228,7 @@ Multicolor & - & The use of more than a single color to explain a concept. For e
 \end{tabularx}
 \end{table}
 
-We conducted a pilot study\footnote{All experimental study materials are available at \url{http://go.barik.net/errviz}.} from undergraduate lab sessions in Software Engineering to address a pre-requisite research question:
+We conducted a pilot study\footnote{All experimental study materials are available at \url{http://go.barik.net/errviz}.} from undergraduate lab sessions in Software Engineering to address a prerequisite research question:
 \begin{description}
 \item[\textbf{RQ0}] What annotations do developers use when they explain error messages to each other?
 \end{description}
@@ -236,11 +237,11 @@ We hypothesized that if participants preferred certain types of annotations when
 
 Thus, before generating our annotations, we conducted an informal lab activity with third-year Software Engineering students. Each student was given a sheet of paper with a source code listing and the corresponding compiler error message. The source code listings were unadorned and lacked any visual annotations.
 
-Students were paired in order to perform an explainer-listener active learning exercise. This is an exercise in which one student, the explainer, is asked to verbally explain the error message to the other student, while visually annotating the source code listing during their explanation. Access to external materials was not allowed. After two minutes of explanation, roles were swapped and the second explainer annotated the second error message.
+Students were paired for an explainer-listener exercise. This is an exercise in which one student, the explainer, is asked to verbally explain the error message to the other student while visually annotating the source code listing during their explanation. Access to external materials was not allowed. After two minutes of explanation, roles were swapped and the second explainer annotated the second error message.
 
 We randomly assigned one of four source code listings to each student, pulled verbatim from the OpenJDK 7 unit tests for compiler diagnostics framework. These examples, among others used in subsequent studies, are found in Table~\ref{tab:tasks}, and no students within a pair received the same source code listings. In total, we collected 73 samples:  17 from T1 (23\%), 12 from T2 (16\%), 20 from T3 (27\%), and 24 from T6 (33\%). Students did not receive tasks T4 or T5, because they had not been created at the time of the pilot study.
 
-From these annotations, we performed two passes over the student responses. In the first pass, we created a taxonomy of visual annotations based on our observations. In the second pass, we classified the student responses using this taxonomy. The aggregated results are shown in Table~\ref{tab:pilot}.
+From these annotations we performed two passes over the student responses. In the first pass, we created a taxonomy of visual annotations based on our observations. In the second pass, we classified the student responses using this taxonomy. The aggregated results are shown in Table~\ref{tab:pilot}.
 
 The pilot study informed our explanatory visualizations, which we implement through annotations such as points, associations, symbols and explanatory code. Since students used these types of annotations without any \textit{a priori} prompting, we postulate that they find these types of annotations intuitive to use during explanation.
 
@@ -260,7 +261,7 @@ Symbol & Description\\
 \begin{tikzpicture}
 \node[opacity=0.3,fill=green!50,rounded corners,text=black] at (0,0) { \texttt{code} } ;
 \end{tikzpicture} 
-& Indicates the starting location of the error.\\\\
+& The starting location of the error.\\\\
 
 \begin{tikzpicture}
  \node[fill opacity=0.3,fill=red!50,rounded corners] 
@@ -283,7 +284,7 @@ Symbol & Description\\
 
 \begin{tikzpicture}
   \node[draw=red,cross out,inner sep=2pt,fill=black,text=white,thick] at (0,0) {};
-\end{tikzpicture} & Indicates a conflict between items.\\\\
+\end{tikzpicture} & Conflict between items.\\\\
 
 \begin{tikzpicture}
 \node[draw,rectangle,draw=black,fill=gray!10,dashed,right] at (0,0) {\texttt{code}};
@@ -308,7 +309,7 @@ We propose a set of eight visual annotations, which are summarized in Table~\ref
 \node[opacity=0.3,fill=green!50,rounded corners,text=black] { \texttt{code} } ;
 \end{tikzpicture} (a green rectangle with rounded corners that surrounds a program element). In our visualization mockups, we choose the starting point to be the same as the source of the error identified by IntelliJ (Figure~\ref{fig:melon:base}). In the example, this is \texttt{final int i}.
 
-Continuing our example, the starting point is associated with a second point, \texttt{int i}, because this is where the potential assignment to the variable occurs. We indicate this with 
+Continuing our example, the starting point is associated with a second point, \texttt{int i}, because this is where the potential assignment to the variable occurs. We indicate the starting point with 
 \begin{tikzpicture}[baseline=-0.5ex]
 \node[opacity=0.3,fill=red!50,rounded corners,text=black] { \texttt{code} };
 \end{tikzpicture} (red rectangle with rounded corners), and the association is indicated by 
@@ -316,7 +317,7 @@ Continuing our example, the starting point is associated with a second point, \t
 \draw[>=latex,->] (0,0) -| (1em, 1em );
 \end{tikzpicture} (a directional arrow).
 
-A second association leads the developer to an explanatory code block that copies the statement. Explanatory code is represented by
+A second association leads the developer to an explanatory code block that contains a copy of the statement. Explanatory code is represented by
 \begin{tikzpicture}[baseline=-0.5ex]
 \node[draw,rectangle,draw=black,fill=gray!10,dashed,right] at (0,0) {\texttt{code}};
 \end{tikzpicture} (dashed gray rectangle), which indicates the surrounded elements are explanatory and not part of the original source code of the program. This explanatory code block is part of a larger \textit{composite annotation} describing the control flow scenario under which the statement is executed.
@@ -350,7 +351,7 @@ There are two visual annotations that do not appear in the motivating example th
 Finally, the \begin{tikzpicture}
 \node (node 1) at (0,0) [circle,draw=gray,very
     thin,fill=red!10,text=white,inner sep=1pt,draw=black,text=black] at (0,0) {\tiny \textbf{?}};
-\end{tikzpicture} is used to indicate that the program element should be associated with another element, but that the connecting element is not found. This can occur, for example, when a \texttt{catch} statement is unreachable either because the exception can never be thrown, or because it is always caught by a prior \texttt{catch} clause:
+\end{tikzpicture} is used to indicate that the program element should be associated with another element, but that the connecting element is not found. This can occur when a \texttt{catch} statement is unreachable either because the exception can never be thrown, or because it is always caught by a prior \texttt{catch} clause:
 
 \includegraphics{trumpet_explain_crop.pdf}
 
@@ -360,7 +361,7 @@ We conducted a second, formal study, which we discuss for the remainder of this 
 
 \subsection{Research Questions}
 
-Broadly, we assigned participants randomly to two groups: a control group, having access to the baseline visualization (red wavy underline) in their source code, and a treatment group, having access to our explanatory visualizations. We designed our experiment to elicit answers for four research questions:
+We assigned participants randomly to two groups: a control group, having access to the baseline visualization (red wavy underline) in their source code, and a treatment group, having access to our explanatory visualizations. We designed our experiment to elicit answers for four research questions:
 
 \begin{description}
 \item[\textbf{RQ1}] Do explanatory visualizations result in more correct self-explanations by developers?
@@ -371,7 +372,7 @@ Broadly, we assigned participants randomly to two groups: a control group, havin
 
 Unlike the baseline visualization, explanatory visualizations are intended to expose the reasoning process of the compiler. 
 
-For RQ1, we hypothesized that exposing this reasoning process would result in significantly more correct explanations by developers. If this hypothesis was not supported, then it would imply that the explanatory visualizations may be confusing to developers, and that developers reason about error messages in a very different way than our diagrammatic representation.
+For RQ1, we hypothesized that exposing this reasoning process would result in significantly more correct explanations by developers. If this hypothesis was not supported, it would imply that the explanatory visualizations might confuse developers and differ from the way they model error messages.
 
 For RQ2, we hypothesized that both the control group and treatment group would adopt similar annotations when developers explained error messages, because our visualizations are based on conventions that developers would find intuitive for self-explanation.
 
@@ -381,7 +382,7 @@ For RQ4, we hypothesized that better explanations result in better mental models
 
 \subsection{Participants}
 
-We recruited 28 participants ($n = 28$) from a third-year undergraduate course in Software Engineering because they were readability available and because we wanted to reserve our more limited industry participants for a full implementation. We offered participants extra credit on their final exam for participating in the study. Participants self-reported demographic data. 23 of the participants were male (82\%), and five of the participants were female (18\%). The mean age of the participants was 22 ($s = 3.6$). Participants reported a mean of 9 months ($s = 12$) of industry programmer experience.
+We recruited 28 participants ($n = 28$) from a third-year undergraduate course in Software Engineering because they were readily available and because we wanted to reserve our more limited industry participants for a full implementation. We offered participants extra credit on their final exam for participating in the study. Participants self-reported demographic data. 23 of the participants were male (82\%), and five of the participants were female (18\%). The mean age of the participants was 22 ($s = 3.6$). Participants reported a mean of 9 months ($s = 12$) of industry programmer experience.
 
 % We further identified outliers through quartile construction to find the standard deviation attributable to three participants self-reporting 28 months, 40 months, and 48 months of experience. Without these participants, the mean industry programmer experience is 5 months ($s = 6$). We performed all analyses with and without these outliers. We concluded that the high outliers were otherwise unremarkable except in their self-reporting and therefore we gave no special consideration to them in subsequent reporting within this paper.
 
@@ -443,7 +444,7 @@ T6 & Trumpet & \texttt{UnreachableCatch1.java} & \texttt{unreachable catch claus
 
 Because our university requires students to have knowledge of Java, we selected examples in this language to mockup our visualizations.
 
-Pragmatically, we wanted to keep our entire study under an hour, and due to this experimental design constraint we could only present six novel visualizations to participants. We readily admit that the selection of these visualizations was not random, and offer our justification for this decision here. 
+Pragmatically, we wanted to keep the entire study under an hour, so we could only present six novel visualizations to participants. We readily admit that the selection of these visualizations was not random, and offer our justification for this decision here. 
 
 We selected our compiler error examples from the OpenJDK diagnostics framework.\footnote{The framework contains a sample source code listing for almost every compiler error within Java. The source files may be downloaded at \url{http://hg.openjdk.java.net/jdk7/tl/langtools/}, and then by browsing to \texttt{test/tools/javac/diags/examples/}.} This framework contains a collection of 382 Java code examples, each of which is designed to generate one or more error messages when compiled.
 
@@ -453,16 +454,16 @@ Furthermore, our visualization system is not intended to teach new concepts; rat
 
 % participants must already know the underlying concepts, though the visual annotations may sometimes force the participant to reconcile their incorrect understanding of the error message when their interpretation conflicts with the visual annotations presented by the tool.
 
-Ultimately, we selected messages that we believed could effectively demonstrate the rich explanatory potential of visualizations, while balancing the capability of the participants. The selected messages are summarized in Table~\ref{tab:tasks}.
+Ultimately, we selected messages that we believed could effectively demonstrate the rich explanatory potential of visualizations, while considering the capability of the participants. The selected messages are summarized in Table~\ref{tab:tasks}.
 
 \subsection{Mockup Construction Procedure}
 
-Using the six selected error messages, we constructed a total of 12 mockups --- six for the the control group, and six for the treatment group. The paper mockups were designed to resemble how the visualization would appear within the text editor of the IDE, with one mockup per page. Each page contained a listing of the source code with the appropriate visualizations and line numbers. The code listing was followed by the text of the compiler error message.
+Using the six selected error messages, we constructed a total of 12 mockups --- six for the control group and six for the treatment group. We designed the paper mockups to resemble how the visualization would appear within the text editor of the IDE, with one mockup per page. Each page contained a listing of the source code with the appropriate visualizations and line numbers. The code listing was followed by the text of the compiler error message.
 
 The control group mockups were designed by directly copying the red wavy underline visualizations provided by the IntelliJ IDE for the Java code examples. IntelliJ also provides interactive tooltips for each error, which are shown when the developer hovers over an annotated substring. However, we did not consider these interactive features since we are specifically interested in the contribution of the explanatory capability of the non-interactive visualizations. We chose IntelliJ over the Eclipse IDE because it uses the same text error messages as the command-line OpenJDK compiler, which is important to our experimental design.
 
-The treatment group mockups were informed by a pilot study through which we elicited an initial taxonomy of visual annotations that appeared to be useful to developers when they explained concepts to other developers (for details of this elicitation process, see Section~\ref{sec:pilotstudy}). We used the annotations from this pilot experiment as a foundation to  manually draw visual annotations for six of the error messages. 
-We used our own experiences with compiler technologies, such as Roslyn\footnote{\url{http://msdn.microsoft.com/en-us/library/roslyn.aspx}}, to render visualizations that we think are plausible for compilers to render if they expose the appropriate data structures to a visualization system.
+The treatment group mockups were informed by a pilot study through which we elicited an initial taxonomy of visual annotations that appeared to be useful to developers when they explained concepts to other developers (for details of this elicitation process, see Section~\ref{sec:pilotstudy}). We used the annotations from this pilot experiment as a foundation for manually drawing visual annotations for six of the error messages. 
+We used our own experiences with compiler technologies such as Roslyn\footnote{\url{http://msdn.microsoft.com/en-us/library/roslyn.aspx}} to render visualizations that we think are plausible for compilers to render if they expose the appropriate data structures to a visualization system.
 
 % For purposes of our study, we also assumed the existence of algorithms that reasonably manage layout issues when visualizations are overlaid on text. This assumption is not entirely unfounded, as we implemented our renderings using TikZ and PGF for LaTeX, a graphics system which provides some support for placing and routing diagrams over text.
 
